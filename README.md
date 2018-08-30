@@ -1,1 +1,1 @@
-# Admin Panel Waydadz AS
+# Admin Panel Waydadz AS new readme
