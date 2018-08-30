@@ -1,2 +1,1 @@
-# Admin Panel Waydadz
-#akhil shravan
+# Admin Panel Waydadz AS
