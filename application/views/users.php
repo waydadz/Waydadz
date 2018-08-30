@@ -1,0 +1,70 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <i class="fa fa-users"></i> User Management
+        <a class="btn btn-primary pull-right" href="<?php echo base_url(); ?>addNew"><i class="fa fa-plus"></i> Add New</a>
+      </h1>
+    </section>
+    <section class="content">
+        
+        <div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                    
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <table id="example" class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer" cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%;">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>EMAIL</th>
+                        <th>MOBILE</th>
+                        <th>ROLE</th>
+                        <th class="text-center">ACTIONS</th>
+                      </tr>
+                  </thead>
+                    <?php
+                    if(!empty($userRecords))
+                    {
+                        foreach($userRecords as $record)
+                        {
+                    ?>
+                    <tr>
+                      <td><?php echo $record->userId ?></td>
+                      <td><?php echo $record->name ?></td>
+                      <td><?php echo $record->email ?></td>
+                      <td><?php echo $record->mobile ?></td>
+                      <td><?php echo $record->role ?></td>
+                      <td class="text-center">
+                          <a class="btn btn-sm btn-primary" href="<?= base_url().'login-history/'.$record->userId; ?>" title="Login history"><i class="fa fa-history"></i></a> | 
+                          <a class="btn btn-sm btn-info" href="<?php echo base_url().'editOld/'.$record->userId; ?>" title="Edit"><i class="fa fa-pencil"></i></a>
+                          <a class="btn btn-sm btn-danger deleteUser" href="#" data-userid="<?php echo $record->userId; ?>" title="Delete"><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    <?php
+                        }
+                    }
+                    ?>
+                  </table>
+                  
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                    <?php echo $this->pagination->create_links(); ?>
+                </div>
+              </div><!-- /.box -->
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            responsive: true
+        });
+    });
+</script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/common.js" charset="utf-8"></script>
+
